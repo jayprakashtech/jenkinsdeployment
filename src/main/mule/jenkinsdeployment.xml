@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="1ea1acb3-5ff8-414f-9a94-6fb58691bc85" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="jenkinsdeploymentFlow" doc:id="51f9fd90-9c62-49d6-87d2-1b9a2ac8d8c6" >
+		<http:listener doc:name="Listener" doc:id="ee4eaeb1-06fb-4451-9ab3-c628328b8696" config-ref="HTTP_Listener_config" path="/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="c38f8a4f-90b3-4887-93c8-750bbcb65ab6" message="************** Initail Logs File #####################"/>
+		<set-payload value="this is simple Payload from Me" doc:name="Set Payload" doc:id="23240333-6d97-40c6-9896-bef42b27b979" />
+	</flow>
+</mule>
